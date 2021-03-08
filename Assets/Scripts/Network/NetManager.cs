@@ -17,8 +17,21 @@ public class NetManager : NetworkRoomManager
     public override void Awake() 
     {
 
-        base.Awake();
-        instance = this;
+
+
+
+        if (instance == null && this.dontDestroyOnLoad) 
+        {
+            instance = this;
+        }
+        else
+        {
+            if (this != instance)
+            {
+                Destroy(instance.gameObject);
+                instance = this; 
+            }
+        }
 
     }
 
