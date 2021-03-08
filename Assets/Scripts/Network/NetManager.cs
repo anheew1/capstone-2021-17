@@ -19,6 +19,7 @@ public class NetManager : NetworkRoomManager
 
         base.Awake();
         instance = this;
+
     }
 
 
