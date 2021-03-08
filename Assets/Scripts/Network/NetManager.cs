@@ -12,11 +12,6 @@ public class NetManager : NetworkRoomManager
 
     public static NetManager instance;
 
-    public void Awake()
-    {
-        base.Awake();
-        instance = this;
-    }
 
     /*
      *  -----------------------------ROOM -------------------------
