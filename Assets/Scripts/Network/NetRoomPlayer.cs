@@ -56,6 +56,16 @@ public class NetRoomPlayer : NetworkRoomPlayer
         }
                
     }
+    public void OnStdrtServer()
+    {
+
+
+        if (isLeader)
+        {
+            gameManager.AssignLeaderAuthority(this);
+        }
+
+    }
 
     public override void ReadyStateChanged(bool _, bool newReadyState) // [Syncvar] readyToBegin hook
     {
