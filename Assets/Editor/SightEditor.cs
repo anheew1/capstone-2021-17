@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor (typeof (Enemy_Chase))]
+//[CustomEditor (typeof (Enemy))]
 public class SightEditor : Editor
 {
-    void OnSceneGUI()
+    /*void OnSceneGUI()
     {
-        Enemy_Chase fov = (Enemy_Chase)target;
+        Enemy fov = (Enemy)target;
         Handles.color = Color.white;
         Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.viewRadius);
 
@@ -20,12 +20,8 @@ public class SightEditor : Editor
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleB * fov.viewRadius);
 
         Handles.color = Color.red;
-        /* 타겟이 시야에 있으면 빨간 선을 Scene에서 그림
-        * *Game 화면 아님*
-        */
-        foreach (Transform visibleTarget in fov.visibleTargets)
-        {
-            Handles.DrawLine(fov.transform.position, visibleTarget.position);
-        }
-    }
+         타겟이 시야에 있으면 빨간 선을 Scene에서 그림
+         Game 화면 아님
+                
+    }*/
 }

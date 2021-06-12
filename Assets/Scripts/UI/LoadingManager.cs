@@ -9,18 +9,44 @@ public class LoadingManager : MonoBehaviour{
     [SerializeField]
     Image progressBar;
 
-    private void Start(){
+    [SerializeField]
+    bool IsLoadAtStart = true;
+
+    private AsyncOperation op;
+
+    private void Start()
+    {
+        if (IsLoadAtStart)
+        {
+            StartLoading();
+        }
+    }
+
+    public void StartLoading()
+    {
         StartCoroutine(LoadScene());
     }
 
-    public static void LoadScene(string sceneName){
+    public void SetAsyncOperation(AsyncOperation op)
+    {
+        this.op = op;
+    }
+
+    //로딩씬을 다음씬과 연결
+    public static void LoadScene(string sceneName)
+    {
         nextScene = sceneName;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Loading");
     }
 
-    IEnumerator LoadScene(){
+//로딩씬 가져오기
+    IEnumerator LoadScene()
+    {
         yield return null;
-        AsyncOperation op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(nextScene);
+        if (op == null)
+        {
+            op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(nextScene);
+        }
         op.allowSceneActivation = false;
         float timer = 0.0f;
 
@@ -29,17 +55,21 @@ public class LoadingManager : MonoBehaviour{
             yield return null;
             timer += Time.deltaTime;
             
-            if (op.progress < 0.9f){
+            if (op.progress < 0.9f)
+            {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
 
-                if (progressBar.fillAmount >= op.progress){
+                if (progressBar.fillAmount >= op.progress)
+                {
                     timer = 0f;
                 }
             }
-            else{
+            else
+            {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
 
-                if (progressBar.fillAmount == 1.0f){
+                if (progressBar.fillAmount == 1.0f)
+                {
                     op.allowSceneActivation = true;
                     yield break;
                 }

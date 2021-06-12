@@ -2,34 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
 public class TeamManager : MonoBehaviour
 {
-    public GameObject[] pl = new GameObject[3];
-    public GameObject pl2;
-    public GameObject pl3;
+    public Text[] NameUI;
+    public Text[] EndUI;
 
-    public Text[] Pl_box = new Text[3];
-    public Image[] Pl_ServerBar = new Image[3];
+    public List<NetGamePlayer> Players = new List<NetGamePlayer>(NetManager.PLAYER_MAXNUM);
+    private List<string> names = new List<string>();
 
-    private bool isDead;
-    private bool connectingServer;
-    public int count_player;
-    /*
+
+
     void Update()
     {
-        CountPlayer(count_player);
+        if (NetworkClient.active || NetworkServer.active)
+        {
+            Players = InGame_MultiGameManager.Players;
+            names = InGame_MultiGameManager.GetPlayersNickname();
+        }
+        ShowText();
     }
-    private void CountPlayer(int i)){ //플레이어수 세기
-        if(i==3)
-            pl[i].SetActive(false);
+
+//텍스트 정보 출력 (이름, 체력, 서버상태)
+    private void ShowText()
+    {
+        int otherIdx = 0; // Other Index == 자기 자신을 제외한 플레이어들의 Index
+        for(int id = 0; id<Players.Count; id++)
+        {
+
+            if (InGame_MultiGameManager.IsLocalPlayer(id))
+            {
+                continue; // Local Player =  바로 플레이어 자기자신
+                          // 플레이어가 자기 자신일때는 otherIndex가 오르지 않음.
+            }
+            NameUI[otherIdx].text = names[id];
+
+            if(Players[id].EndState == PlayerEndingState.Escape)
+            {
+                EndUI[otherIdx].text = "ESCAPED!";
+            }
+            else if(Players[id].EndState == PlayerEndingState.Dead)
+            {
+                EndUI[otherIdx].text = "DEAD!";
+            }
+            else if(Players[id].EndState == PlayerEndingState.Disconnected)
+            {
+                EndUI[otherIdx].text = "DISCONNECTED";
+            }
+            otherIdx++;
+        }
+
+        for(int id = otherIdx ; id < 3; id++)
+        {
+            NameUI[id].text = "";
+            EndUI[id].text = "";
+        }
     }
-    private void setText(int num, Text name, float server){ //플레이어 박스, 서버상태와 플레이어 이름을 받아옴
-        Pl_box[num].text = "Name : " + name + "\nHP : \n";
-    }
-    private string CheckHP(int num){
-        HPManager.IsDead(num);
-    }
-    // Update is called once per frame*/
-    
+/*
+    //서버 상태 간략화
+    private void SimpleServer(){
+
+    }*/
+
+    //사망 또는 게임 클리어 여부
+
+        
+
 }

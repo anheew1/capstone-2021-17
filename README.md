@@ -1,35 +1,60 @@
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=349915&assignment_repo_type=GroupAssignmentRepo)
-# 멀티플레이어 3D 공포게임
+# Raider
 
-```
-게임 로고 필요, 게임 제목 필요
-```
+https://kookmin-sw.github.io/capstone-2021-17/
 
 ### 1. 프로잭트 소개
 
-
-![888efdcb-abc6-4911-9468-81f456c121d2](https://user-images.githubusercontent.com/28583561/109491985-a0d30380-7acd-11eb-8911-08e9bbf8d33e.jpg)
-![8920f93b-4999-49f7-9826-b8360e75b059](https://user-images.githubusercontent.com/28583561/109492009-a92b3e80-7acd-11eb-9248-680e0618ad33.jpg)
-![36fa99b9-424e-4c6f-979f-8325f7dbb3fc](https://user-images.githubusercontent.com/28583561/109492281-1343e380-7ace-11eb-8819-9e5232d5a144.jpg)
-
-
+<hr> 
+<div width="100%">
+<img src="https://user-images.githubusercontent.com/28583561/113183056-905da680-928e-11eb-8be8-8c97b68dc006.png" width= "500"> </img>
+</div>
 
 
-본 프로젝트에서는 Unity 엔진을 이용하여 대항할수 없는 적 하나 (AI)를 상대로 플레이어 4명이서 협동하여 도망치고 탈출하는 **협동 멀티플레이어 게임**을 개발하고자 합니다
-플랫폼은 **PC** 기반이고, 플레이어는 3인칭 시점의 카메라를 보며 키보드와 마우스를 이용해 캐릭터를 조종하게 됩니다. 플레이어는 작은 휴머노이드 로봇이며 플레이어를 공격하려 움직이는 적 로봇 하나를 피해 다른 플레이어들과 함께 살아남아 탈출해야 합니다.
 
-플레이어들은 아이템 박스에서 특정 아이템들을 모아야만 탈출수단을 활성화 할 수 있으며 적들로부터 도망치는데 좋은 아이템도 있습니다. 체력 시스템이 있으며 적으로부터 공격을 받으면 체력이 닳고 아이템 박스로부터 체력킷을 얻고 회복할 수 있습니다. 플레이어의 상태가 어떤지, 탈출수단에 필요한 아이템을 얼마나 모았는지는 다른 플레이어들에게도 화면상에 공유가 됩니다. 
+본 프로젝트에서는 Unity 엔진을 이용하여 **멀티플레이어 3D 게임**을 제작하고자 합니다.
 
-게임은 플레이어가 모두 탈출하거나 모두 공격당해 죽었을 경우에 끝납니다. 
+이 게임은 SF 세계관인 우주선 속에서 **최대 4명의 플레이어**가 협동하여 적으로부터 도망치고 미션을 수행하며 탈출하는 게임입니다.
 
-플레이어들은 게임 시작전에 게임 대기실(로비)에서 다른 플레이어가 방에 들어오기까지 기다리게 됩니다. 게임이 시작될 경우 대기실에 있는 플레이어들이 함께 인게임으로 이동하게 됩니다. 플레이어는 Room ID를 검색하여 같이하고 싶은 플레이어의 대기실에 들어갈수 있게됩니다. 
+게임 시작에 앞서 플레이어들은 방을 만들거나 접속하여 원하는 플레이어들과 게임을 할 수 있습니다.
+
+게임이 시작되면 플레이어들은 3인칭 시점의 로봇을 조종하게 됩니다. 
+맵에는 미션, 아이템, 적이라는 요소가 존재하는데 
+
+미션은 여러가지 미니게임의 형태로 진행이 되며 모든 플레이어는 맵상에 모든 미션을 클리어 해야합니다.
+도중에 AI가 조종하는 적이 플레이어를 추적하고 공격하기 때문에 그를 피하면서 진행해야합니다.
+그리고 적으로 부터 살아남기 위해 힐팩이나 스턴건과 같이 생존에 유리한 아이템을 얻을 수 있습니다.
+
+모든 미션을 클리어 할 경우 탈출구를 열 수 있으며 탈출하게 되면 게임을 클리어 할 수 있게됩니다.
+
+### 2. abstract
+
+In this project, we plan to make **Multiplayer 3D games** using the Unity 3D engine.
+
+players can connect game up to **four players** 
+and do missions, avoid enemy, and escape from a spaceship in SF world together.
+
+Before the game starts, players can create or join the room to play with friends.
+
+When the game starts, the players control the third-person robot.
+and there are missions, items, enemies in game 
+
+The mission is actually various mini-games, and all players must clear all missions on the map.
+On the way, AI-controlled enemies chase and attack the player, so you have to avoid it.
+And to survive from the enemy, you can get items that are useful to survive, such as heel packs and stun guns.
+
+If you clear all missions, you will be able to open the exit gate, 
+and when you escaped, you cleared the game
 
 
-### 2. 소개 영상
+### 3. 중간 소개 영상
 
-프로젝트 소개하는 영상을 추가하세요
+[![Alt text](http://i.ytimg.com/vi/ETcIRnatyL4/0.jpg)](https://youtu.be/ETcIRnatyL4)
 
-### 3. 팀 소개
+### 4. 최종 시연 영상
+
+[![Alt text](http://i.ytimg.com/vi/PQKoQMY7TTg/0.jpg)](https://youtu.be/PQKoQMY7TTg)
+
+### 5. 팀 소개
 
 ![KakaoTalk_20210222_214226176](https://user-images.githubusercontent.com/28583561/108721137-028eed00-7565-11eb-8b42-59d31da88338.jpg)
 ```
@@ -60,10 +85,38 @@
 게임 UI 담당
 ```
 
-### 4. 사용법
+### 6. 사용법
 
-게임 완성 시 Realesed에 빌드된 파일을 올릴 예정입니다.
+https://github.com/kookmin-sw/capstone-2021-17/releases/tag/1.0.0
 
-### 5. 기타
+**게임은 Released 탭에 배포되어 있는 파일을 다운받아 실행하시면 됩니다.**
 
-추가적인 내용은 자유롭게 작성하세요.
+
+### 7. 프로젝트 사진들
+
+<img width="351" alt="스타트캡처" src="https://user-images.githubusercontent.com/28583561/119276079-c3e7fc00-bc53-11eb-8e28-a116fdc22e80.png">
+
+
+<img width="351" alt="인게임 캡처" src="https://user-images.githubusercontent.com/28583561/119276735-c13ad600-bc56-11eb-89fb-3f6fd8ee43e1.jpg">
+
+
+
+<img width="500" alt="roomNetworkDiagram" src="https://user-images.githubusercontent.com/28583561/119276785-f6dfbf00-bc56-11eb-87c0-778d9098d330.png">
+
+**Room Network Diagram**
+
+
+### 8. 기타
+
+<br>
+
+**트렐로 일정관리** <br>
+https://trello.com/b/tDtekjs8/game
+
+<br>
+
+
+**서버를 직접 구동하는 법 (Unity 2020.2 버전 이상 필요)** <br>
+https://github.com/kookmin-sw/capstone-2021-17/blob/master/doc/Raider%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%84%9C%EB%B2%84%20%EA%B5%AC%EB%8F%99%EB%B2%95.pdf
+
+
